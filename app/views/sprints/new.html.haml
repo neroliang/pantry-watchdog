@@ -1,0 +1,26 @@
+.row
+  .medium-12.columns
+    %h1 Create New Sprint
+
+.row
+  .medium-6.columns
+
+    = form_for [@project, @sprint] do |f|
+      .row
+        .small-3.columns
+          %label
+            %strong Votes
+          = f.select :votes, (1..100)
+
+      .row
+        .small-3.columns
+          .actions
+            = f.submit "Create", class: 'button round'
+
+
+  .medium-6.columns
+    %h2 Votes?
+    .help-inset
+      Number of scrum members who are rating the sprint.
+      %br
+      The create action will create a sprint and a token for it.

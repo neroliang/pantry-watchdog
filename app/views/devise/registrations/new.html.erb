@@ -1,0 +1,67 @@
+<div class='row'>
+  <div class='medium-12 columns'>
+    <h1>Sign Up</h1>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='medium-6 columns'>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true, html: {data: {abide: ''}}) do |f| %>
+    <%= devise_error_messages! %>
+    
+      <label>
+        <strong>Email</strong>
+      </label>
+      <%= f.email_field :email, autocomplete: "off", autofocus: true %>
+      <small class="error">Please provide an email in a correct format</small>
+
+
+        <label>
+          <strong>Confirm email</strong>
+        </label>
+        <input type="email" name="token_request[email_confirmation]" id="email_confirmation" required data-equalto="email">
+        <!-- f.text_field  :email_confirmation, :required => true -->
+        <small class="error">The email did not match</small>
+
+
+      <label>
+        <strong>Password</strong>
+      </label>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", required: true %>
+      <small class="error">The password did not satisfy the complexity requirement</small>
+
+      <label>
+        <strong>Confirm Password</strong>
+      </label>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", :html => {'data-equalto' => 'password'} %>
+      <small class="error">The password did not match</small>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'button round'%>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class='medium-6 columns'>
+    <h2>If you already have an account?</h2>
+    
+    <%= render "devise/shared/links" %>
+
+    <br>
+
+    <h3>Scrumness account</h3>
+
+    <div class='help-inset'>
+      This account is ideally for a scrum master.
+      <br>
+      An account lets the user create projects and lets the team rate each sprint
+    </div>
+  </div>
+</div>

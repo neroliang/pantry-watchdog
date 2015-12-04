@@ -1,0 +1,24 @@
+.row
+	.medium-8.columns
+		%h3 Projects
+
+		%table
+			%thead
+				%tr
+					%th{:width => "150"} Project
+					%th{:width => "350"} Description
+					%th{:width => "75"} View
+			%tbody
+				- @projects.each do |project|
+					%tr
+						%td 
+							= project.name
+						%td 
+							= project.description
+						%td 
+							= link_to "Show", project_path(project.id)
+
+
+	.medium-4.columns
+		%h3 Manage
+		= link_to 'Add Project', new_project_path, class: 'button tiny round'

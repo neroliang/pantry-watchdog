@@ -1,0 +1,26 @@
+.row
+  .medium-12.columns
+    %h1 Create New Project
+
+.row
+  .medium-6.columns
+
+    = form_for @project do |f|
+      %label
+        %strong Project Name
+      = f.text_field :name
+
+      %label
+        %strong Description
+      = f.text_field :description
+
+      .actions
+        = f.submit "Create", class: 'button round'
+
+
+  .medium-6.columns
+    %h2 New project will have sprints automatically generated in future
+    .help-inset
+      Some text
+      %br
+      Some more text
